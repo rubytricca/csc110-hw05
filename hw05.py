@@ -16,6 +16,7 @@ def get_letter():
             continue
         else:
             return letter
+            break
 
 def get_digit():
     #Add your own Docstring 
@@ -25,18 +26,15 @@ def get_digit():
             if not digit.isdigit():
                 print("Error: your input should be only digits.")
                 continue
-            if digit not in "123":
+            if digit not in "123" or len(digit)>1:
                 print("Error: a single digit needs to be in [1,3].")
                 continue
             else:
                 return digit
                 break
 
-def check_pattern(letter, digit):
+def check_pattern(letter, digit, st_list):
     # Add your own Docstring
-    st_list = ["@C@2", "@2B", "A3", "C2C2", "AA@1", "@B@33",
-    "B@2@", "@@C1", "1B@", "A@@2", "@A3@", "@1@A", "2AA@",
-    "1B1B", "333B", "1@CC", "3@@C", "333C"]
     print("Strings with the pattern:")
     for idx in st_list:
             if idx[1::2] == letter+digit:
@@ -47,23 +45,22 @@ def check_pattern(letter, digit):
                 word2 = idx
                 print(word2, end=" ")
                 continue
-
+st_list = ["@C@2", "@2B", "A3", "C2C2", "AA@1", "@B@33",
+"B@2@", "@@C1", "1B@", "A@@2", "@A3@", "@1@A", "2AA@",
+"1B1B", "333B", "1@CC", "3@@C", "333C"]
 def main ():
-    """ gets a letter-num pair and searches inside a list for matches"""
     while True:
         letter = get_letter()
         digit = get_digit()
-    #The list inside of which we will search the user pair (DO NOT MODIFY)
-        check_pattern(letter, digit)
-        st_list = ["@C@2", "@2B", "A3", "C2C2", "AA@1", "@B@33",
-        "B@2@", "@@C1", "1B@", "A@@2", "@A3@", "@1@A", "2AA@",
-        "1B1B", "333B", "1@CC", "3@@C", "333C"]
-        print("\n")
+        check_pattern(letter, digit, st_list)
         cont=str(input("Try Again? (y/n): "))
         if cont=="y":
             continue
         else:
-            exit
+            break
+        
+        
+        
               
     # No need to modify anything Below this line
     print("The End")
