@@ -5,7 +5,8 @@ References: my notes
 """
 
 def get_letter():
-    #Add your own Docstring
+    #takes a string as input and checks length, case, and letter
+    #returns letter as a string if all criteria are met
     while True:
         letter = str(input("Give an single uppercase letter: "))
         if len(letter) > 1:
@@ -19,8 +20,8 @@ def get_letter():
             break
 
 def get_digit():
-    #Add your own Docstring 
-    # remove the default return and add your code 
+    #takes a string as input and checks whether it is a digit, length, and number
+    #returns digit as a string if all criteria are met
         while True:
             digit= str(input("Give a single number character: "))
             if not digit.isdigit():
@@ -32,9 +33,9 @@ def get_digit():
             else:
                 return digit
                 break
-
+    #takes 3 arguments and checks given list for strings containing letter and digit in that order
+    #prints strings in list that meet the criteria 
 def check_pattern(letter, digit, st_list):
-    # Add your own Docstring
     print("Strings with the pattern:")
     for idx in st_list:
             if idx[1::2] == letter+digit:
@@ -48,6 +49,9 @@ def check_pattern(letter, digit, st_list):
 st_list = ["@C@2", "@2B", "A3", "C2C2", "AA@1", "@B@33",
 "B@2@", "@@C1", "1B@", "A@@2", "@A3@", "@1@A", "2AA@",
 "1B1B", "333B", "1@CC", "3@@C", "333C"]
+
+#runs all functions
+#main function repeats if user enters input y, ends otherwise
 def main ():
     while True:
         letter = get_letter()
